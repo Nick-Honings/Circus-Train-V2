@@ -1,3 +1,0 @@
-# Circus train
-
-Circus train
