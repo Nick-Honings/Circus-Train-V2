@@ -28,7 +28,6 @@ namespace CircusTrainWithUnitTests
             return false;
         }
 
-
         private bool DoesAnimalFit(Animal animal)
         {
             if ((Occupied + animal.Size) <= MaxCapacity)
