@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Circus_Train
 {
@@ -17,9 +15,9 @@ namespace Circus_Train
 
         public bool DoesAnimalFit(Animal _animal)
         {
-            if(MaxCapacity - occupied >= _animal.Size)
-            {               
-                if(_animal.Size == 5 && _animal.FoodPreference == 1 && Animals.Count > 0)
+            if (MaxCapacity - occupied >= _animal.Size)
+            {
+                if (_animal.Size == 5 && _animal.FoodPreference == 1 && Animals.Count > 0)
                 {
                     return false;
                 }

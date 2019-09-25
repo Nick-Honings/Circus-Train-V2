@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Circus_Train
+﻿namespace Circus_Train
 {
     public class Animal
     {

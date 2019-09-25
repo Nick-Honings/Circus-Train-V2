@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace CircusTrainWithUnitTests.Test
 {
@@ -16,7 +11,7 @@ namespace CircusTrainWithUnitTests.Test
             int expected = 1;
             Train train = new Train();
             Wagon wagon = new Wagon();
-
+            
             // Act
             train.AddWagon(wagon);
             int result = train.Wagons.Count;
@@ -25,6 +20,5 @@ namespace CircusTrainWithUnitTests.Test
             Assert.Equal(expected, result);
             Assert.Equal(wagon, train.Wagons[0]);
         }
-
     }
 }

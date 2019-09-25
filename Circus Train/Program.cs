@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Circus_Train
+﻿namespace Circus_Train
 {
     class Program
     {

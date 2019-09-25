@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Circus_Train
 {
     public class Train
     {
-        public int NumberofWagons { get;private set; } = 0;
+        public int NumberofWagons { get; private set; } = 0;
 
         public List<Wagon> Wagons { get; private set; }
 
         private CountBigCarnivores countBigCarnivores;
-        
+
         public Train()
         {
             Wagons = new List<Wagon>();
@@ -25,7 +24,7 @@ namespace Circus_Train
         }
 
         public void FillTrain(List<Animal> animals)
-        { 
+        {
             int bigCarnivores = countBigCarnivores.Count(animals);
             Console.WriteLine("Big carnivores: " + bigCarnivores);
             for (int i = 0; i < bigCarnivores; i++)
@@ -36,15 +35,14 @@ namespace Circus_Train
             }
 
             Console.WriteLine(animals.Count);
-            
 
             for (int i = 0; i < animals.Count; i++)
             {
                 int bestWagon = -1;
                 for (int j = 0; j < Wagons.Count; j++)
-                {                    
+                {
                     if (Wagons[j].DoesAnimalFit(animals[i]))
-                    {                        
+                    {
                         Console.WriteLine("Animal added");
                         break;
                     }
@@ -54,7 +52,7 @@ namespace Circus_Train
                         //break;
                     }
                 }
-                
+
 
                 if (bestWagon != -1)
                 {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CircusTrainWithUnitTests;
+﻿using System.Collections.Generic;
 using Xunit;
 
 namespace CircusTrainWithUnitTests.Test
@@ -27,7 +22,7 @@ namespace CircusTrainWithUnitTests.Test
         }
 
         [Fact]
-        public void BySizeAndFFoodPreference_Should_Sort_With_One_Entries()
+        public void BySizeAndFoodPreference_Should_Sort_With_One_Entries()
         {
             List<Animal> expected = new List<Animal>()
             {

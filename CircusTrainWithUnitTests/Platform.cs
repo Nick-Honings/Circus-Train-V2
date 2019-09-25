@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CircusTrainWithUnitTests
 {
     public class Platform
     {
-        private Train train;
+        public Train Train { get; set; }
 
 
-        public Platform()
+        public void AddTrain(Train _train)
         {
-
-        }
-
-        public Train Train
-        {
-            get { return train; }
+            if (Train == null)
+            {
+                Train = _train;
+            }
         }
 
         public List<Animal> Spawnanimals(int number)
@@ -29,10 +26,8 @@ namespace CircusTrainWithUnitTests
             for (int i = 0; i < number; i++)
             {
                 animals.Add(new Animal(size[rnd.Next(size.Length)], foodpreference[rnd.Next(foodpreference.Length)]));
-                Console.WriteLine("size: " + animals[i].Size + "food preference: " + animals[i].FoodPreference);
             }
             return animals;
         }
-
     }
 }

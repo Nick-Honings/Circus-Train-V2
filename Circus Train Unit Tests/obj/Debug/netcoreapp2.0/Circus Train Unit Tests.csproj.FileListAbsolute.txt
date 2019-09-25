@@ -1,0 +1,11 @@
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\bin\Debug\netcoreapp2.0\Circus Train Unit Tests.deps.json
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\bin\Debug\netcoreapp2.0\Circus Train Unit Tests.runtimeconfig.json
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\bin\Debug\netcoreapp2.0\Circus Train Unit Tests.runtimeconfig.dev.json
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\bin\Debug\netcoreapp2.0\Circus Train Unit Tests.dll
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\bin\Debug\netcoreapp2.0\Circus Train Unit Tests.pdb
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\obj\Debug\netcoreapp2.0\Circus Train Unit Tests.csprojAssemblyReference.cache
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\obj\Debug\netcoreapp2.0\Circus Train Unit Tests.csproj.CoreCompileInputs.cache
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\obj\Debug\netcoreapp2.0\Circus Train Unit Tests.AssemblyInfoInputs.cache
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\obj\Debug\netcoreapp2.0\Circus Train Unit Tests.AssemblyInfo.cs
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\obj\Debug\netcoreapp2.0\Circus Train Unit Tests.dll
+C:\Users\nickh\source\repos\Circus Train\Circus Train Unit Tests\obj\Debug\netcoreapp2.0\Circus Train Unit Tests.pdb

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Circus_Train
 {
@@ -25,6 +23,6 @@ namespace Circus_Train
             return SortedAnimals;
         }
 
-        
+
     }
 }

@@ -1,28 +1,43 @@
-﻿using System;
+﻿using BenchmarkDotNet.Attributes;
 using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics;
 
 namespace CircusTrainWithUnitTests
 {
     public class Train
     {
-        public int NumberofWagons { get;private set; } = 0;
+        public int NumberofWagons { get; private set; } = 0;
 
-        public List<Wagon> Wagons { get; private set; }
+        public List<Wagon> Wagons { get; private set; }       
 
-        private SeperateBigCarnivores carnivores;
-
-        
         public Train()
         {
             Wagons = new List<Wagon>();
-            carnivores = new SeperateBigCarnivores();
         }
-        
+
         public void AddWagon(Wagon wagon)
         {
             Wagons.Add(wagon);
             NumberofWagons++;
+        }
+
+        public void DistributeAnimals(List<Animal> animals)
+        {
+            AddWagon(new Wagon());
+            for (int i = 0; i < animals.Count; i++)
+            {
+                for (int j = 0; j < Wagons.Count; j++)
+                {
+                    if (Wagons[j].IsAnimalAdded(animals[i]))
+                    {
+                        break;
+                    }
+                    if(Wagons.Count == j + 1)
+                    {
+                        AddWagon(new Wagon());
+                    }                                  
+                }
+            }
         }
     }
 }
