@@ -2,15 +2,13 @@
 {
     public class Animal
     {
-        public Animal(int size, int foodPreference)
+        public FoodPreference FoodPreference { get; set; }
+        public Size Size { get; set; }
+
+        public Animal(Size size, FoodPreference foodPreference)
         {
             Size = size;
             FoodPreference = foodPreference;
         }
-        public int Size { get; set; }
-
-        //0: Herbivore
-        //1: Carnivore
-        public int FoodPreference { get; set; }
     }
 }

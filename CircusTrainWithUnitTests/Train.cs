@@ -8,7 +8,7 @@ namespace CircusTrainWithUnitTests
     {
         public int NumberofWagons { get; private set; } = 0;
 
-        public List<Wagon> Wagons { get; private set; }       
+        public List<Wagon> Wagons { get; private set; }        
 
         public Train()
         {

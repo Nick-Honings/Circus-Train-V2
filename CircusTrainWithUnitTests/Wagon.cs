@@ -21,7 +21,7 @@ namespace CircusTrainWithUnitTests
                 if (DoesAnimalGetEaten(animal) == false)
                 {
                     Animals.Add(animal);
-                    Occupied += animal.Size;
+                    Occupied += (int)animal.Size;
                     return true;
                 }
             }
@@ -30,7 +30,7 @@ namespace CircusTrainWithUnitTests
 
         private bool DoesAnimalFit(Animal animal)
         {
-            if ((Occupied + animal.Size) <= MaxCapacity)
+            if ((Occupied + (int)animal.Size) <= MaxCapacity)
             {
                 return true;
             }
@@ -39,14 +39,12 @@ namespace CircusTrainWithUnitTests
 
         private bool DoesAnimalGetEaten(Animal _animal)
         {
+            int secondAnimalSize = (int)_animal.Size;
             foreach (Animal animal in Animals)
             {
-                // Every carnivore bigger than the other animal
-                if ((animal.FoodPreference == 1) && animal.Size >= _animal.Size)
-                {
-                    return true;
-                }
-                else if (_animal.FoodPreference == 1 && _animal.Size >= animal.Size)
+                int firstAnimalSize = (int)animal.Size;
+                
+                if ((animal.FoodPreference == FoodPreference.Carnivore) && firstAnimalSize >= secondAnimalSize)
                 {
                     return true;
                 }

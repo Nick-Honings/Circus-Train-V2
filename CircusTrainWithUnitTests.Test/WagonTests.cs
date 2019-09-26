@@ -1,25 +1,60 @@
-﻿using Xunit;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Xunit;
 
 namespace CircusTrainWithUnitTests.Test
 {
     public class WagonTests
     {
-        [Fact]
-        public void AddAnimal_ShouldAddOneAnimalToList()
+        public class OneAnimal
         {
-            // Arrange
-            int expected = 1;
-            Wagon wagon = new Wagon();
-            Animal animal = new Animal(1, 5);
+            [Fact]
+            public void AddAnimal_ShouldWork()
+            {
+                // Arrange
+                int expected = 1;
+                Wagon wagon = new Wagon();
+                Animal animal = new Animal(Size.Large, FoodPreference.Carnivore);
 
-            // Act
-            wagon.IsAnimalAdded(animal);
-            int result = wagon.Animals.Count;
+                // Act
+                wagon.IsAnimalAdded(animal);
+                int result = wagon.Animals.Count;
 
-            // Assert
-            Assert.Equal(expected, result);
-            Assert.Equal(animal, wagon.Animals[0]);
+                // Assert
+                Assert.Equal(expected, result);
+                Assert.Equal(animal, wagon.Animals[0]);
+            }
         }
+
+        public class MultipleAnimal
+        {
+
+            [Fact]
+            public void AddAnimal_ShouldWork()
+            {
+                // Arrange
+                int expected = 1;
+                Wagon wagon = new Wagon();
+                Animal animal = new Animal(Size.Large, FoodPreference.Carnivore);
+
+                // Act
+                wagon.IsAnimalAdded(animal);
+                int result = wagon.Animals.Count;
+
+                // Assert
+                Assert.Equal(expected, result);
+                Assert.Equal(animal, wagon.Animals[0]);
+            }
+
+
+
+
+
+        }
+
+
+
+
 
 
         //[Theory]

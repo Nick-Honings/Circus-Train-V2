@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using FluentAssertions;
+using System.Collections.Generic;
 using Xunit;
 
 namespace CircusTrainWithUnitTests.Test
@@ -26,7 +27,7 @@ namespace CircusTrainWithUnitTests.Test
         {
             List<Animal> expected = new List<Animal>()
             {
-                new Animal(3, 0)
+                new Animal(Size.Medium, FoodPreference.Herbivore)
             };
 
             List<Animal> result = new List<Animal>();
@@ -45,27 +46,29 @@ namespace CircusTrainWithUnitTests.Test
             // Arrange
             List<Animal> expected = new List<Animal>()
             {
-                new Animal(5,1),
-                new Animal(5, 0),
-                new Animal(3, 0),
-                new Animal(1,1)
+                new Animal(Size.Large,FoodPreference.Carnivore),
+                new Animal(Size.Small, FoodPreference.Carnivore),
+                new Animal(Size.Large, FoodPreference.Herbivore),
+                new Animal(Size.Medium,FoodPreference.Herbivore)
             };
 
             List<Animal> result = new List<Animal>()
             {
-                new Animal(5, 0),
-                new Animal(1,1),
-                new Animal(5,1),
-                new Animal(3, 0)
+                new Animal(Size.Small, FoodPreference.Carnivore),
+                new Animal(Size.Large,FoodPreference.Herbivore),
+                new Animal(Size.Medium, FoodPreference.Herbivore),
+                new Animal(Size.Large,FoodPreference.Carnivore)
+                
             };
 
             SortAnimals sortAnimals = new SortAnimals();
 
             // Act
-            result = sortAnimals.BySizeAndFoodPreference(expected);
+            result = sortAnimals.BySizeAndFoodPreference(result);
 
             // Assert
-            Assert.Equal(expected, result);
+            //Assert.Equal(expected, result);
+            expected.Should().BeEquivalentTo(result);
         }
     }
 }
