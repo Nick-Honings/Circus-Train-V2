@@ -48,6 +48,10 @@ namespace CircusTrainWithUnitTests
                 {
                     return true;
                 }
+                else if (_animal.FoodPreference == FoodPreference.Carnivore && secondAnimalSize >= firstAnimalSize)
+                {
+                    return true;
+                }
             }
             return false;
         }

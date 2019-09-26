@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FluentAssertions;
+using System.Collections;
 using System.Collections.Generic;
 using Xunit;
 
@@ -30,32 +31,78 @@ namespace CircusTrainWithUnitTests.Test
         {
 
             [Fact]
-            public void AddAnimal_ShouldWork()
+            public void AddAnimal_ShouldFailWithLargeCarnivore()
             {
                 // Arrange
                 int expected = 1;
                 Wagon wagon = new Wagon();
-                Animal animal = new Animal(Size.Large, FoodPreference.Carnivore);
+                Animal bigCarnivore = new Animal(Size.Large, FoodPreference.Carnivore);
+                Animal mediumHerbivore = new Animal(Size.Large, FoodPreference.Carnivore);
+
 
                 // Act
-                wagon.IsAnimalAdded(animal);
+                wagon.IsAnimalAdded(bigCarnivore);
+                wagon.IsAnimalAdded(mediumHerbivore);
                 int result = wagon.Animals.Count;
 
                 // Assert
                 Assert.Equal(expected, result);
-                Assert.Equal(animal, wagon.Animals[0]);
+                //bigCarnivore.Should().BeEquivalentTo(wagon.Animals[0]);
+                Assert.Equal(bigCarnivore, wagon.Animals[0]);
             }
 
+            [Theory]
+            [InlineData(Size.Large, FoodPreference.Herbivore)]
+            [InlineData(Size.Small, FoodPreference.Herbivore)]
+            [InlineData(Size.Medium, FoodPreference.Carnivore)]
+            public void AddAnimal_ShouldWork(Size size, FoodPreference foodPreference)
+            {
+                // Arrange
+                int expected = 2;
+                Wagon wagon = new Wagon();
+                Animal bigCarnivore = new Animal(Size.Large, FoodPreference.Herbivore);
+                Animal mediumHerbivore = new Animal(size, foodPreference);
 
+                // Act
+                wagon.IsAnimalAdded(bigCarnivore);
+                wagon.IsAnimalAdded(mediumHerbivore);
+                int result = wagon.Animals.Count;
 
+                // Assert
+                Assert.Equal(expected, result);
+                Assert.Equal(bigCarnivore, wagon.Animals[0]);
+            }
 
+            [Theory]
+            // if carnivore in wagon is bigger or equal in size of animal trying to add
+            [InlineData(Size.Large, FoodPreference.Carnivore, Size.Large, FoodPreference.Carnivore)]
+            [InlineData(Size.Large, FoodPreference.Carnivore, Size.Large, FoodPreference.Herbivore)]
+            [InlineData(Size.Large, FoodPreference.Carnivore, Size.Small, FoodPreference.Carnivore)]
+            [InlineData(Size.Large, FoodPreference.Carnivore, Size.Small, FoodPreference.Herbivore)]
 
+            // if carnivore trying to add is bigger or equal in zie of animal in container
+            [InlineData(Size.Small, FoodPreference.Herbivore, Size.Small, FoodPreference.Carnivore)]
+            [InlineData(Size.Large, FoodPreference.Herbivore, Size.Large, FoodPreference.Carnivore)]
+            [InlineData(Size.Small, FoodPreference.Carnivore, Size.Small, FoodPreference.Carnivore)]
+
+            public void AddAnimal_ShouldFail(Size firstAnimalSize, FoodPreference firstFoodPreference, Size secAnimalSize, FoodPreference secFoodPreference)
+            {
+                // Arrange
+                int expected = 1;
+                Wagon wagon = new Wagon();
+                Animal firstAnimal = new Animal(firstAnimalSize, firstFoodPreference);
+                Animal secondAnimal = new Animal(secAnimalSize, secFoodPreference);
+
+                // Act
+                wagon.IsAnimalAdded(firstAnimal);
+                wagon.IsAnimalAdded(secondAnimal);
+                int result = wagon.Animals.Count;
+
+                // Assert
+                Assert.Equal(expected, result);
+                Assert.Equal(firstAnimal, wagon.Animals[0]);
+            }
         }
-
-
-
-
-
 
         //[Theory]
         //[InlineData(0, 5, true)]
