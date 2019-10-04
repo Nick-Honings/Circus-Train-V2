@@ -7,10 +7,24 @@ namespace CircusTrainWithUnitTests.Test
 {
     public class WagonTests
     {
+        #region AddAnimal Tests
+
+
         public class OneAnimal
         {
+            #region Setup
+            Wagon wagon;
+            Animal emptyAnimal;
+
+            public OneAnimal()
+            {
+                wagon = new Wagon();                
+            }
+
+            #endregion
+
             [Fact]
-            public void AddAnimal_ShouldWork()
+            public void AddAnimal_ShouldWorkAndReturnTrue()
             {
                 // Arrange
                 int expected = 1;
@@ -18,18 +32,33 @@ namespace CircusTrainWithUnitTests.Test
                 Animal animal = new Animal(Size.Large, FoodPreference.Carnivore);
 
                 // Act
-                wagon.IsAnimalAdded(animal);
+                bool isAdded = wagon.IsAnimalAdded(animal);
                 int result = wagon.Animals.Count;
 
                 // Assert
                 Assert.Equal(expected, result);
                 Assert.Equal(animal, wagon.Animals[0]);
+                Assert.True(isAdded);
+            }
+
+            [Fact]
+            public void AddAnimal_ShouldNotAddEmptyClassAndReturnFalse()
+            {
+                // Arrange
+                int expected = 0;
+                
+                // Act
+                bool isAdded = wagon.IsAnimalAdded(emptyAnimal);
+                int result = wagon.Animals.Count;
+
+                // Assert
+                Assert.Equal(expected, result);
+                Assert.False(isAdded);
             }
         }
-
         public class MultipleAnimal
         {
-
+            #region LargeCarnivore
             [Fact]
             public void AddAnimal_ShouldFailWithLargeCarnivore()
             {
@@ -47,10 +76,11 @@ namespace CircusTrainWithUnitTests.Test
 
                 // Assert
                 Assert.Equal(expected, result);
-                //bigCarnivore.Should().BeEquivalentTo(wagon.Animals[0]);
                 Assert.Equal(bigCarnivore, wagon.Animals[0]);
             }
+            #endregion
 
+            #region Big Herbivore
             [Theory]
             [InlineData(Size.Large, FoodPreference.Herbivore)]
             [InlineData(Size.Small, FoodPreference.Herbivore)]
@@ -73,6 +103,10 @@ namespace CircusTrainWithUnitTests.Test
                 Assert.Equal(bigCarnivore, wagon.Animals[0]);
             }
 
+            #endregion
+
+
+            #region Multiple combinations
             [Theory]
             // if carnivore in wagon is bigger or equal in size of animal trying to add
             [InlineData(Size.Large, FoodPreference.Carnivore, Size.Large, FoodPreference.Carnivore)]
@@ -102,81 +136,9 @@ namespace CircusTrainWithUnitTests.Test
                 Assert.Equal(expected, result);
                 Assert.Equal(firstAnimal, wagon.Animals[0]);
             }
+            #endregion
+
         }
-
-        //[Theory]
-        //[InlineData(0, 5, true)]
-        //[InlineData(5, 3, true)]
-        //[InlineData(9, 1, true)]
-        //public void DoesAnimalFit_ShouldReturnTrue(int occupied, int size, bool expected)
-        //{
-        //    // Arrange
-        //    Wagon wagon = new Wagon
-        //    {
-        //        Occupied = occupied
-        //    };
-        //    Animal animal = new Animal(size, 1);
-
-        //    // Act
-        //    bool result = wagon.DoesAnimalFit(animal);
-
-        //    // Assert
-        //    Assert.Equal(expected, result);
-        //}
-
-        //[Theory]
-        //[InlineData(10, 1, false)]
-        //[InlineData(9, 3, false)]
-        //public void DoesAnimalFit_ShouldReturnFalse(int occupied, int size, bool expected)
-        //{
-        //    // Arrange
-        //    Wagon wagon = new Wagon
-        //    {
-        //        Occupied = occupied
-        //    };
-        //    Animal animal = new Animal(size, 1);
-
-        //    // Act
-        //    bool result = wagon.DoesAnimalFit(animal);
-
-        //    // Assert
-        //    Assert.Equal(expected, result);
-        //}
-
-        //[Theory]
-        //[InlineData(5, 1)]
-        //[InlineData(1, 1)]
-        //[InlineData(5, 0)]
-        //[InlineData(1, 0)]
-        //public void DoesAnimalGetEaten_ShouldReturnTrue(int size, int foodpreference)
-        //{
-        //    // Arrange
-        //    Wagon wagon = new Wagon();
-        //    wagon.IsAnimalAdded(new Animal(5, 1));
-        //    Animal animal = new Animal(size, foodpreference);
-
-        //    // Act
-        //    bool result = wagon.DoesAnimalGetEaten(animal);
-
-        //    // Assert
-        //    Assert.True(result);
-        //}
-
-        //[Theory]
-        //[InlineData(5, 0)]
-        //[InlineData(3, 0)]
-        //public void DoesAnimalGetEaten_ShouldReturnFalse(int size, int foodpreference)
-        //{
-        //    // Arrange
-        //    Wagon wagon = new Wagon();
-        //    wagon.IsAnimalAdded(new Animal(1, 1));
-        //    Animal animal = new Animal(size, foodpreference);
-
-        //    // Act
-        //    bool result = wagon.DoesAnimalGetEaten(animal);
-
-        //    // Assert
-        //    Assert.False(result);
-        //}
+        #endregion
     }
 }

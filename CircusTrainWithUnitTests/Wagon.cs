@@ -7,7 +7,7 @@ namespace CircusTrainWithUnitTests
         public int MaxCapacity { get; set; } = 10;
         public List<Animal> Animals { get; }
 
-        public int Occupied { get; set; } = 0;
+        public int Occupied { get; private set; } = 0;
 
         public Wagon()
         {
@@ -16,7 +16,7 @@ namespace CircusTrainWithUnitTests
 
         public bool IsAnimalAdded(Animal animal)
         {
-            if (DoesAnimalFit(animal))
+            if (animal != null && DoesAnimalFit(animal))
             {
                 if (DoesAnimalGetEaten(animal) == false)
                 {

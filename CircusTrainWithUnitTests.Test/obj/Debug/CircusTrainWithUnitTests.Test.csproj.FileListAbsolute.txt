@@ -14,7 +14,6 @@ C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests.Test\bin\Debug
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests.Test\bin\Debug\xunit.core.xml
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests.Test\bin\Debug\xunit.execution.desktop.xml
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests.Test\obj\Debug\CircusTrainWithUnitTests.Test.csprojAssemblyReference.cache
-C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests.Test\obj\Debug\CircusTrainWithUnitTests.Test.csproj.CoreCompileInputs.cache
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests.Test\obj\Debug\CircusTrainWithUnitTests.Test.csproj.CopyComplete
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests.Test\obj\Debug\CircusTrainWithUnitTests.Test.dll
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests.Test\obj\Debug\CircusTrainWithUnitTests.Test.pdb

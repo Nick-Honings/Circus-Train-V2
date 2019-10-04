@@ -17,8 +17,11 @@ namespace CircusTrainWithUnitTests
 
         public void AddWagon(Wagon wagon)
         {
-            Wagons.Add(wagon);
-            NumberofWagons++;
+            if (wagon != null)
+            {
+                Wagons.Add(wagon);
+                NumberofWagons++; 
+            }
         }
 
         public void DistributeAnimals(List<Animal> animals)
