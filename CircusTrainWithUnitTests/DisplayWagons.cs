@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace CircusTrainWithUnitTests
 {
-    public class DisplayWagons
+    public class Display
     {
-        public static void Display(List<Wagon> wagons)
+        public static void DisplayWagons(List<Wagon> wagons)
         {
             for (int i = 0; i < wagons.Count; i++)
             {

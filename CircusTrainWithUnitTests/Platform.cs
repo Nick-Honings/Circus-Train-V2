@@ -6,6 +6,7 @@ namespace CircusTrainWithUnitTests
     public class Platform
     {
         public Train Train { get; set; }
+        private SortAnimals sortAnimals;
 
 
         public void AddTrain(Train _train)
@@ -18,16 +19,21 @@ namespace CircusTrainWithUnitTests
 
         public List<Animal> Spawnanimals(int number)
         {
+            sortAnimals = new SortAnimals();
             List<Animal> animals = new List<Animal>();
-            int[] size = { 1, 3, 5 };
-            int[] foodpreference = { 0, 1 };
+
+            Array foodPreferences = Enum.GetValues(typeof(FoodPreference));
+            Array sizes = Enum.GetValues(typeof(Size));
+
             Random rnd = new Random();
 
             for (int i = 0; i < number; i++)
-            {
-                animals.Add(new Animal(size[rnd.Next(size.Length)], foodpreference[rnd.Next(foodpreference.Length)]));
+            {                
+                FoodPreference randomFoodPreference = (FoodPreference)foodPreferences.GetValue(rnd.Next(foodPreferences.Length));
+                Size randomSize = (Size)sizes.GetValue(rnd.Next(sizes.Length));
+                animals.Add(new Animal(randomSize, randomFoodPreference));
             }
-            return animals;
+            return sortAnimals.BySizeAndFoodPreference(animals);
         }
     }
 }
