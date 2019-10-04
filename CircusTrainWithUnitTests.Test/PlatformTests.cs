@@ -5,14 +5,23 @@ namespace CircusTrainWithUnitTests.Test
 
     public class PlatformTests
     {
+        #region Setup
+        Platform platform;
+        Train train;
+        
+        public PlatformTests()
+        {
+            platform = new Platform();
+            train = new Train();
+        }
+        #endregion
 
-
+        #region SpawnAnimals Tests
         [Fact]
         public void SpawnAnimals_ShouldSpawnZeroAnimals()
         {
             // Arrange
             int expected = 0;
-            Platform platform = new Platform();
 
             // Act
             int actual = platform.Spawnanimals(0).Count;
@@ -26,7 +35,6 @@ namespace CircusTrainWithUnitTests.Test
         {
             // Arrange
             int expected = 1;
-            Platform platform = new Platform();
 
             // Act
             int actual = platform.Spawnanimals(1).Count;
@@ -40,7 +48,6 @@ namespace CircusTrainWithUnitTests.Test
         {
             // Arrange
             int expected = 5;
-            Platform platform = new Platform();
 
             // Act
             int actual = platform.Spawnanimals(5).Count;
@@ -48,36 +55,36 @@ namespace CircusTrainWithUnitTests.Test
             // Assert
             Assert.Equal(expected, actual);
         }
+        #endregion
+
+        #region AddTrain Tests
 
         [Fact]
         public void AddTrain_ShouldAddTrain()
         {
             // Arrange            
-            Platform platform = new Platform();
-            Train expected = new Train();
 
             // Act
-            platform.AddTrain(expected);
+            platform.AddTrain(train);
 
             // Assert
             Assert.NotNull(platform.Train);
-            Assert.Equal(expected, platform.Train);
+            Assert.Equal(train, platform.Train);
         }
 
         [Fact]
         public void AddTrain_ShouldNotAddTrain()
         {
             // Arrange
-            Platform platform = new Platform();
-            Train expected = new Train();
             Train train2 = new Train();
-            platform.AddTrain(expected);
+            platform.AddTrain(train);
 
             // Act
             platform.AddTrain(train2);
 
             // Assert
-            Assert.Equal(expected, platform.Train);
+            Assert.Equal(train, platform.Train);
         }
+        #endregion
     }
 }

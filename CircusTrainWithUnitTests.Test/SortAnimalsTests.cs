@@ -1,18 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using FluentAssertions;
+using System.Collections.Generic;
 using Xunit;
 
 namespace CircusTrainWithUnitTests.Test
 {
     public class SortAnimalsTests
     {
+        #region Setup
+        List<Animal> expected;
+        List<Animal> result;
+        SortAnimals sortAnimals;
+
+        public SortAnimalsTests()
+        {
+            expected = new List<Animal>();
+            result = new List<Animal>();
+            sortAnimals = new SortAnimals();
+        }
+
+        #endregion
+
+
+        #region BySizeAndFoodPreference
         [Fact]
         public void BySizeAndFoodPreference_Should_Sort_With_Zero_Entries()
         {
-            // Arrange            
-            List<Animal> expected = new List<Animal>();
-            List<Animal> result = new List<Animal>();
-
-            SortAnimals sortAnimals = new SortAnimals();
+            // Arrange        
 
             // Act
             result = sortAnimals.BySizeAndFoodPreference(expected);
@@ -24,13 +37,8 @@ namespace CircusTrainWithUnitTests.Test
         [Fact]
         public void BySizeAndFoodPreference_Should_Sort_With_One_Entries()
         {
-            List<Animal> expected = new List<Animal>()
-            {
-                new Animal(3, 0)
-            };
-
-            List<Animal> result = new List<Animal>();
-            SortAnimals sortAnimals = new SortAnimals();
+            // Arrange
+            expected.Add(new Animal(Size.Medium, FoodPreference.Herbivore));
 
             // Act
             result = sortAnimals.BySizeAndFoodPreference(expected);
@@ -43,29 +51,28 @@ namespace CircusTrainWithUnitTests.Test
         public void BySizeAndFoodPreference_Should_Sort_With_Multiple_Entries()
         {
             // Arrange
-            List<Animal> expected = new List<Animal>()
-            {
-                new Animal(5,1),
-                new Animal(5, 0),
-                new Animal(3, 0),
-                new Animal(1,1)
-            };
+            expected.Add(new Animal(Size.Large, FoodPreference.Carnivore));
+            expected.Add(new Animal(Size.Small, FoodPreference.Carnivore));
+            expected.Add(new Animal(Size.Large, FoodPreference.Herbivore));
+            expected.Add(new Animal(Size.Medium, FoodPreference.Herbivore));
 
             List<Animal> result = new List<Animal>()
             {
-                new Animal(5, 0),
-                new Animal(1,1),
-                new Animal(5,1),
-                new Animal(3, 0)
+                new Animal(Size.Small, FoodPreference.Carnivore),
+                new Animal(Size.Large,FoodPreference.Herbivore),
+                new Animal(Size.Medium, FoodPreference.Herbivore),
+                new Animal(Size.Large,FoodPreference.Carnivore)                
             };
 
             SortAnimals sortAnimals = new SortAnimals();
 
             // Act
-            result = sortAnimals.BySizeAndFoodPreference(expected);
+            result = sortAnimals.BySizeAndFoodPreference(result);
 
             // Assert
-            Assert.Equal(expected, result);
+            //Assert.Equal(expected, result);
+            expected.Should().BeEquivalentTo(result);
         }
+        #endregion
     }
 }

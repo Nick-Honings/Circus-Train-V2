@@ -4,7 +4,6 @@ C:\Users\nickh\source\repos\Circus Train\Circus Train\bin\Debug\netcoreapp2.1\Ci
 C:\Users\nickh\source\repos\Circus Train\Circus Train\bin\Debug\netcoreapp2.1\Circus Train2.dll
 C:\Users\nickh\source\repos\Circus Train\Circus Train\bin\Debug\netcoreapp2.1\Circus Train2.pdb
 C:\Users\nickh\source\repos\Circus Train\Circus Train\obj\Debug\netcoreapp2.1\Circus Train2.csprojAssemblyReference.cache
-C:\Users\nickh\source\repos\Circus Train\Circus Train\obj\Debug\netcoreapp2.1\Circus Train2.csproj.CoreCompileInputs.cache
 C:\Users\nickh\source\repos\Circus Train\Circus Train\obj\Debug\netcoreapp2.1\Circus Train2.AssemblyInfoInputs.cache
 C:\Users\nickh\source\repos\Circus Train\Circus Train\obj\Debug\netcoreapp2.1\Circus Train2.AssemblyInfo.cs
 C:\Users\nickh\source\repos\Circus Train\Circus Train\obj\Debug\netcoreapp2.1\Circus Train2.dll

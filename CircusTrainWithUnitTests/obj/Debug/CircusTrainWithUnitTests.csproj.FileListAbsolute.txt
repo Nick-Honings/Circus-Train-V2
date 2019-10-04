@@ -1,7 +1,6 @@
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests\bin\Debug\CircusTrainWithUnitTests.exe.config
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests\bin\Debug\CircusTrainWithUnitTests.exe
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests\bin\Debug\CircusTrainWithUnitTests.pdb
-C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests\obj\Debug\CircusTrainWithUnitTests.csproj.CoreCompileInputs.cache
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests\obj\Debug\CircusTrainWithUnitTests.exe
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests\obj\Debug\CircusTrainWithUnitTests.pdb
 C:\Users\nickh\source\repos\Circus Train\CircusTrainWithUnitTests\obj\Debug\CircusTrainWithUnitTests.csprojAssemblyReference.cache
