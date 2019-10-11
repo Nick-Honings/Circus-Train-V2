@@ -215,9 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animal.cs" />
+    <Compile Include="CalculateLowerBound.cs" />
     <Compile Include="DisplayWagons.cs" />
     <Compile Include="Foodpreference.cs" />
-    <Compile Include="IDisplay.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using System.Collections.Generic;
+using Xunit;
 
 namespace CircusTrainWithUnitTests.Test
 {
@@ -49,10 +51,26 @@ namespace CircusTrainWithUnitTests.Test
         #endregion
 
         #region DistributeAnimals: Data driven tests
+        /// <summary>
+        /// IEnumberable object to inject sets of data in theory method.
+        /// </summary>
+        
+        [Theory]
+        [ClassData(typeof(TrainTestData))]
 
+        public void DistributeAnimals_ShouldMatch(List<Animal> animals, List<Wagon> expected)
+        {
+            // Arrange
 
+            // Act
+            train.DistributeAnimals(animals);
+            var result = train.Wagons;
 
+            // Assert
+            expected.Should().BeEquivalentTo(result);            
+        }
 
         #endregion
+
     }
 }

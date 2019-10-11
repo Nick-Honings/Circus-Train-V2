@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="TrainTestData.cs" />
     <Compile Include="PlatformTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortAnimalsTests.cs" />
